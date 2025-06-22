@@ -14,11 +14,7 @@ app.use(express.json());
 // MongoDB 연결
 const mongoURI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/dronecraft';
 
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 5000
-}).then(() => {
+mongoose.connect(mongoURI).then(() => {
   console.log('MongoDB에 연결되었습니다! 🎯');
 }).catch((error) => {
   console.error('MongoDB 연결 실패:', error);
